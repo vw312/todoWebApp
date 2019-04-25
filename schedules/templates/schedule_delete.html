@@ -1,0 +1,21 @@
+{%extends 'base.html'%}
+
+        {%block title_link%}
+        <title>Delete Schedule</title>
+        {%endblock%}
+    </head>
+    {%block body%}
+
+    <body class="background">
+        <div class="center background">
+            <h3 class ="text-success">Your schedule has been deleted. Redirecting ...</h3>
+        </div>
+        <script type="text/javascript">
+            (function() {
+                setTimeout(function() {
+                    window.location = "../../../";
+                }, 2000); /* 1000 = 1 second*/
+            })();
+        </script>
+    </body>
+    {%endblock%}

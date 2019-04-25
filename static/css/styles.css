@@ -1,0 +1,55 @@
+.background {
+    background-color: #eaf6f6;
+}
+
+html body {
+    height: 100%;
+    width: 100%;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.a {
+    text-align: center;
+}
+
+.navbar_bg {
+    background-color: #a6e3e9;
+}
+
+.done_schedule {
+    background-color: #a4f6a5;
+}
+
+.schedule {
+    background-color: #deecff;
+}
+
+.expired_schedule {
+    background-color: #ffa0d2;
+}
+
+.parent {
+    text-align: center;
+}
+
+.block {
+    text-align: left;
+}
+
+.left {
+    margin: auto auto auto 0;
+}
+
+.right {
+    margin: auto 0 auto auto;
+}
+
+textarea {
+    display: block;
+}

@@ -1,0 +1,17 @@
+{%extends 'base.html'%}
+
+{%block title_link%}
+<title>Login</title>
+{%endblock%}
+
+{%block body%}
+<body class="background">
+    <div class="center background">
+        <form method="post" > {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Submit" class="btn btn-success" >
+        </form>
+    </div>
+</body>
+
+{%endblock%}

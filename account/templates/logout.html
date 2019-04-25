@@ -1,0 +1,22 @@
+{%extends 'base.html'%}
+
+{%block title_link%}
+<title>Logout</title>
+{%endblock%}
+{%block body%}
+
+<body class="background">
+    <div class="center background">
+        <h2 class ="text-success">You have been logged out. Redirecting ...</h2>
+    </div>
+    {% if chk %}
+    <script type="text/javascript">
+        (function() {
+            setTimeout(function() {
+                window.location = "/../../";
+            }, 2000); /* 1000 = 1 second*/
+        })();
+    </script>
+    {% endif %}
+</body>
+{%endblock%}

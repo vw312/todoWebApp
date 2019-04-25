@@ -1,0 +1,19 @@
+{%extends 'base.html'%}
+{%block title_link%}
+<title>Edit Schedule</title>
+{%endblock%}
+
+
+{%block body%}
+
+<body class="background">
+    <div class="center background">
+        <form method="post">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Edit Schedule" class="btn btn-success">
+            <button type="submit" name="button" formaction="delete/" class="btn btn-danger"> Delete Schedule</button>
+        </form>
+    </div>
+</body>
+{%endblock%}

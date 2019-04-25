@@ -1,0 +1,32 @@
+{%extends 'base.html'%}
+
+{%block title_link%}
+<title>Delete Schedule</title>
+{%endblock%}
+
+{%block body%}
+
+<body class="background">
+    <nav class="navbar navbar-expand-lg navbar-light navbar_bg">
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                </li>
+            </ul>
+            <a class="btn btn-outline-success my-2 my-sm-0" href="change_password/">Change Password</a>
+            <form class="form-inline my-2 my-lg-0" action="delete/" method="post"> {% csrf_token %}
+                <input class="btn btn-outline-danger my-sm-0 " type="submit" value="Delete Account">
+            </form>
+        </div>
+    </nav>
+
+    <div class="">
+        <form method="post" class="center background">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Update email address" class="btn btn-success" >
+        </form>
+    </div>
+</body>
+{%endblock%}

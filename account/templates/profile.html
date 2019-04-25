@@ -1,0 +1,118 @@
+{%extends 'base.html'%}
+
+{%block title_link%}
+<title>Your Account</title>
+{%endblock%}
+
+{%block body%}
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light navbar_bg">
+        <a class="btn btn-outline-success my-2 my-sm-0" href="schedules/create/">Create New Schedule</a>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                </li>
+            </ul>
+            <a class="btn btn-outline-success mr-sm-2" href="edit/">{{user.username}}</a>
+            <form class="form-inline my-2 my-lg-0" action="logout/" method="post"> {% csrf_token %}
+                <input class="btn btn-outline-success my-sm-0 " type="submit" value="Logout">
+            </form>
+        </div>
+    </nav>
+
+        {% for instance in schedule_list %}
+
+        {% if instance.state_user %}
+
+        <div class="done_schedule  container-fluid ">
+            <div class="row ">
+                <div class="col-md-4 parent">
+                    <a href="schedules/{{instance.id}} " class="center btn btn-secondary" >Edit</a>
+                </div>
+                <div class=" col-md-8 ">
+                    <p class="text-secondary">What you have to do : <span class="text-primary">{{instance.what_todo}}</span></p>
+                    <p class="text-secondary">Description : <span class="text-primary">{{instance.description}}</span></p>
+                    <p class="text-secondary">Do it by : <span class="text-primary">{{instance.date_time}}</span></p>
+                    {% if instance.state_user %}
+                    <p class="text-secondary">State : <span class="text-primary">Complete</span></p>
+                    {% else %}
+                    <p class="text-secondary">State : <span class="text-primary">Incomplete</span></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+        {% elif instance.state_db %}
+
+        <div class=" expired_schedule  container-fluid">
+            <div class="row">
+                <div class=" col-md-4 parent">
+                    <a href="schedules/{{instance.id}} " class="center btn btn-secondary">Edit</a>
+                </div>
+                <div class=" col-md-8 ">
+                    <p class="text-secondary">What you have to do : <span class="text-primary">{{instance.what_todo}}</span></p>
+                    <p class="text-secondary">Description : <span class="text-primary">{{instance.description}}</span></p>
+                    <p class="text-secondary">Do it by : <span class="text-primary">{{instance.date_time}}</span></p>
+                    {% if instance.state_user %}
+                    <p class="text-secondary">State : <span class="text-primary">Complete</span></p>
+                    {% else %}
+                    <p class="text-secondary">State : <span class="text-primary">Incomplete</span></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+
+
+        {% else %}
+
+        <div class="schedule  container-fluid">
+            <div class="row">
+                <div class=" col-md-4 parent ">
+                    <a href="schedules/{{instance.id}} " class="center btn btn-secondary">Edit</a>
+                </div>
+                <div class=" col-md-8  ">
+                        <p class="text-secondary">What you have to do : <span class="text-primary">{{instance.what_todo}}</span></p>
+                        <p class="text-secondary">Description : <span class="text-primary">{{instance.description}}</span></p>
+                        <p class="text-secondary">Do it by : <span class="text-primary">{{instance.date_time}}</span></p>
+                        {% if instance.state_user %}
+                        <p class="text-secondary">State : <span class="text-primary">Complete</span></p>
+                        {% else %}
+                        <p class="text-secondary">State : <span class="text-primary">Incomplete</span></p>
+                        {% endif %}
+                </div>
+            </div>
+        </div>
+        </div>
+
+        {% endif %}
+
+        {% endfor %}
+
+        {% if  not schedule_list %}
+        <div class="a">
+            <h6>No schedules to show </h6>
+        </div>
+        {% else %}
+        <div class="a">
+            <h6>We will email you one hour before an incomplete schedule(If you have a email registered with us)</h6>
+        </div>
+        <div class="a ">
+            <h6>To mark a event as complete go into 'Edit'</h6>
+        </div>
+        <div class="a ">
+            <h6>Expired schedules are shown in <span class="text-danger">red </span></h6>
+        </div>
+        <div class="a ">
+            <h6>Completed schedules in <span class="text-success">green</span></h6>
+        </div>
+
+        {% endif %}
+
+
+</body>
+
+{%endblock%}
+
+{%block script%}
+{%endblock%}
